@@ -4,10 +4,10 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
+    "dev": "node scripts/ensure-rolldown-binding.cjs && vite dev",
     "build": "node scripts/ensure-rolldown-binding.cjs && vite build",
     "build:dev": "node scripts/ensure-rolldown-binding.cjs && vite build --mode development",
-    "preview": "vite preview",
+    "preview": "node scripts/ensure-rolldown-binding.cjs && vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
     "test": "vitest run",

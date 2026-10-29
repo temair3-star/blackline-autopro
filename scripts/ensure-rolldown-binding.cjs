@@ -76,13 +76,13 @@ function restoreToRolldown(source) {
   }
 
   const dest = path.join(rolldownDistDir, BINDING_FILE);
-  if (fs.existsSync(dest)) return;
-
-  try {
-    fs.copyFileSync(source, dest);
-    console.log(`[rolldown-fix] restored native binding to rolldown/dist`);
-  } catch (e) {
-    console.warn(`[rolldown-fix] failed to restore binding: ${e.message}`);
+  if (!fs.existsSync(dest)) {
+    try {
+      fs.copyFileSync(source, dest);
+      console.log(`[rolldown-fix] restored native binding to rolldown/dist`);
+    } catch (e) {
+      console.warn(`[rolldown-fix] failed to restore binding: ${e.message}`);
+    }
   }
 
   const pkgDir = path.dirname(
