@@ -7,17 +7,12 @@ export function Logo({ className, onClick }: { className?: string; onClick?: () 
       onClick={onClick}
       aria-label="BLACKLINE — на главную"
       className={cn(
-        "group inline-flex items-center gap-2 font-display text-lg font-bold tracking-[0.08em] text-foreground",
+        "inline-flex items-center gap-2.5 text-lg font-extrabold tracking-[0.04em] text-foreground",
         className,
       )}
     >
-      <span
-        aria-hidden
-        className="h-5 w-1.5 -skew-x-12 rounded-sm bg-primary transition-transform duration-300 group-hover:scale-y-125"
-      />
-      <span>
-        BLACK<span className="text-primary">LINE</span>
-      </span>
+      <span aria-hidden className="h-[3px] w-5 bg-primary" />
+      BLACKLINE
     </a>
   );
 }
