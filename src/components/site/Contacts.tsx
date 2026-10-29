@@ -19,13 +19,12 @@ export function Contacts() {
     <section id="contacts" className="section-y scroll-mt-16 lg:scroll-mt-20">
       <div className="container-site">
         <SectionHeading
-          eyebrow="Контакты"
           title="Приезжайте — сделаем красиво"
           description="Позвоните или оставьте заявку, и мы подберём удобное время."
         />
 
         <div className="grid gap-5 lg:grid-cols-[1fr_1.15fr]">
-          <Reveal className="flex flex-col rounded-3xl border border-border bg-card p-6 sm:p-10">
+          <Reveal className="flex flex-col rounded-sm border border-border bg-card p-6 sm:p-10">
             <ul className="flex flex-col gap-8">
               <li className="flex gap-4">
                 <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" />
@@ -78,7 +77,7 @@ export function Contacts() {
           <Reveal delay={120}>
             <div
               id="booking"
-              className="h-full scroll-mt-24 rounded-3xl border border-primary/30 bg-card p-6 sm:p-10"
+              className="h-full scroll-mt-24 rounded-sm border border-border bg-card p-6 sm:p-10"
             >
               <BookingForm />
             </div>
