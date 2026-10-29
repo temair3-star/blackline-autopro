@@ -1,5 +1,7 @@
-import washPhoto from "@/assets/gallery-wash.jpg.asset.json";
 import { Reveal } from "./Reveal";
+
+const washPhotoUrl =
+  "https://images.pexels.com/photos/4876639/pexels-photo-4876639.jpeg?auto=compress&cs=tinysrgb&w=1000";
 
 const advantages = [
   {
@@ -23,7 +25,7 @@ export function Advantages() {
         <Reveal className="order-2 lg:order-1">
           <div className="aspect-[4/3] overflow-hidden rounded-sm lg:aspect-[4/5]">
             <img
-              src={washPhoto.url}
+              src={washPhotoUrl}
               alt="Мастер моет автомобиль в пене на мойке"
               loading="lazy"
               width={1000}
@@ -37,8 +39,8 @@ export function Advantages() {
           <Reveal className="border-t border-border pt-6">
             <h2 className="text-3xl font-bold leading-[1.05] sm:text-4xl lg:text-5xl">О нас</h2>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-foreground/90">
-              Мы относимся к мойке как к ремеслу: не спешим, не экономим на материалах и не
-              отдаём машину, пока сами не довольны результатом.
+              Мы относимся к мойке как к ремеслу: не спешим, не экономим на материалах и не отдаём
+              машину, пока сами не довольны результатом.
             </p>
           </Reveal>
 

@@ -31,13 +31,17 @@ export function Pricing() {
           <table className="hidden w-full border-collapse text-left md:table">
             <thead>
               <tr className="border-b border-foreground/30 text-sm text-muted-foreground">
-                <th scope="col" className="py-3 pr-6 font-medium">Услуга</th>
+                <th scope="col" className="py-3 pr-6 font-medium">
+                  Услуга
+                </th>
                 {carClasses.map((c) => (
                   <th key={c.id} scope="col" className="py-3 pr-6 text-right font-medium">
                     {c.label}
                   </th>
                 ))}
-                <th scope="col" className="py-3"><span className="sr-only">Запись</span></th>
+                <th scope="col" className="py-3">
+                  <span className="sr-only">Запись</span>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -48,7 +52,10 @@ export function Pricing() {
                     <span className="mt-0.5 block text-sm text-muted-foreground">{item.note}</span>
                   </th>
                   {carClasses.map((c) => (
-                    <td key={c.id} className="whitespace-nowrap py-5 pr-6 text-right tabular-nums lg:text-lg">
+                    <td
+                      key={c.id}
+                      className="whitespace-nowrap py-5 pr-6 text-right tabular-nums lg:text-lg"
+                    >
                       {formatPrice(item.prices[c.id])}
                     </td>
                   ))}
@@ -71,7 +78,9 @@ export function Pricing() {
                   {carClasses.map((c) => (
                     <div key={c.id}>
                       <dt className="text-xs text-muted-foreground">{c.label}</dt>
-                      <dd className="mt-0.5 font-medium tabular-nums">{formatPrice(item.prices[c.id])}</dd>
+                      <dd className="mt-0.5 font-medium tabular-nums">
+                        {formatPrice(item.prices[c.id])}
+                      </dd>
                     </div>
                   ))}
                 </dl>

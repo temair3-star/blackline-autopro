@@ -31,16 +31,14 @@ export function Footer() {
           <ul className="mt-5 space-y-3">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="text-sm text-foreground transition-colors hover:text-primary">
+                <a
+                  href={link.href}
+                  className="text-sm text-foreground transition-colors hover:text-primary"
+                >
                   {link.label}
                 </a>
               </li>
             ))}
-            <li>
-              <a href="#gallery" className="text-sm text-foreground transition-colors hover:text-primary">
-                Галерея
-              </a>
-            </li>
           </ul>
         </nav>
 
@@ -50,7 +48,10 @@ export function Footer() {
           </p>
           <ul className="mt-5 space-y-3 text-sm">
             <li>
-              <a href={contacts.phoneHref} className="text-foreground transition-colors hover:text-primary">
+              <a
+                href={contacts.phoneHref}
+                className="text-foreground transition-colors hover:text-primary"
+              >
                 {contacts.phoneDisplay}
               </a>
             </li>
@@ -68,7 +69,10 @@ export function Footer() {
       <div className="border-t border-border">
         <div className="container-site flex flex-col items-start justify-between gap-4 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} BLACKLINE. Демонстрационный сайт.</p>
-          <a href="#top" className="inline-flex items-center gap-2 transition-colors hover:text-primary">
+          <a
+            href="#top"
+            className="inline-flex items-center gap-2 transition-colors hover:text-primary"
+          >
             Наверх
             <ArrowUp className="h-3.5 w-3.5" />
           </a>

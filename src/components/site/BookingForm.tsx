@@ -40,6 +40,11 @@ export function BookingForm() {
     setName("");
     setPhone("");
     setSelectedService("");
+    setErrors({});
+  };
+
+  const clearError = (key: keyof BookingData) => {
+    setErrors((prev) => (prev[key] ? { ...prev, [key]: undefined } : prev));
   };
 
   if (submitted) {
@@ -51,8 +56,8 @@ export function BookingForm() {
         </span>
         <h3 className="mt-6 text-2xl font-bold">Заявка заполнена, но не отправлена</h3>
         <p className="mt-3 leading-relaxed text-muted-foreground">
-          Это демонстрационная версия сайта: приём заявок пока не подключён, поэтому владелец
-          студии эту заявку не получит. Чтобы записаться, пожалуйста, позвоните по телефону.
+          Это демонстрационная версия сайта: приём заявок пока не подключён, поэтому владелец студии
+          эту заявку не получит. Чтобы записаться, пожалуйста, позвоните по телефону.
         </p>
         <dl className="mt-6 divide-y divide-border rounded-xl border border-border bg-background text-sm">
           <div className="flex justify-between gap-4 px-4 py-3">
@@ -96,7 +101,10 @@ export function BookingForm() {
           placeholder="Как к вам обращаться"
           value={name}
           maxLength={60}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => {
+            setName(e.target.value);
+            clearError("name");
+          }}
           aria-invalid={Boolean(errors.name)}
           aria-describedby={errors.name ? "booking-name-error" : undefined}
           className={cn(fieldClass, errors.name && "border-destructive")}
@@ -121,7 +129,10 @@ export function BookingForm() {
           placeholder="+7 900 123-45-67"
           value={phone}
           maxLength={25}
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={(e) => {
+            setPhone(e.target.value);
+            clearError("phone");
+          }}
           aria-invalid={Boolean(errors.phone)}
           aria-describedby={errors.phone ? "booking-phone-error" : undefined}
           className={cn(fieldClass, errors.phone && "border-destructive")}
@@ -142,7 +153,10 @@ export function BookingForm() {
             id="booking-service"
             name="service"
             value={selectedService}
-            onChange={(e) => setSelectedService(e.target.value as ServiceId | "")}
+            onChange={(e) => {
+              setSelectedService(e.target.value as ServiceId | "");
+              clearError("service");
+            }}
             aria-invalid={Boolean(errors.service)}
             aria-describedby={errors.service ? "booking-service-error" : undefined}
             className={cn(

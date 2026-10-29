@@ -11,6 +11,7 @@ import servicePolish from "@/assets/service-polish.jpg.asset.json";
 export const navLinks = [
   { label: "Услуги", href: "#services" },
   { label: "Цены", href: "#pricing" },
+  { label: "Галерея", href: "#gallery" },
   { label: "О нас", href: "#about" },
   { label: "Контакты", href: "#contacts" },
 ] as const;
@@ -29,13 +30,7 @@ export const contacts = {
 } as const;
 
 export type ServiceId =
-  | "wash"
-  | "detailing"
-  | "interior"
-  | "polish"
-  | "express"
-  | "ceramic"
-  | "consult";
+  "wash" | "detailing" | "interior" | "polish" | "express" | "ceramic" | "consult";
 
 export interface Service {
   id: ServiceId;

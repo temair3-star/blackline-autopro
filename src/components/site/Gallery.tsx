@@ -1,13 +1,36 @@
-import seat from "@/assets/gallery-seat.jpg.asset.json";
-import before from "@/assets/creta-before.jpg.asset.json";
-import after from "@/assets/creta-after.jpg.asset.json";
-import foam from "@/assets/gallery-foam.jpg.asset.json";
 import { cn } from "@/lib/utils";
 import { BeforeAfter } from "./BeforeAfter";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 
-function Photo({ src, alt, caption, className }: { src: string; alt: string; caption: string; className?: string }) {
+const beforeUrl =
+  "https://images.pexels.com/photos/14515713/pexels-photo-14515713.jpeg?auto=compress&cs=tinysrgb&w=1200";
+const afterUrl =
+  "https://images.pexels.com/photos/6872163/pexels-photo-6872163.jpeg?auto=compress&cs=tinysrgb&w=1200";
+const seatUrl =
+  "https://images.pexels.com/photos/5233285/pexels-photo-5233285.jpeg?auto=compress&cs=tinysrgb&w=600";
+const foamUrl =
+  "https://images.pexels.com/photos/6873174/pexels-photo-6873174.jpeg?auto=compress&cs=tinysrgb&w=600";
+const polishUrl =
+  "https://images.pexels.com/photos/14231684/pexels-photo-14231684.jpeg?auto=compress&cs=tinysrgb&w=600";
+const wheelUrl =
+  "https://images.pexels.com/photos/14231678/pexels-photo-14231678.jpeg?auto=compress&cs=tinysrgb&w=600";
+const pressureWashUrl =
+  "https://images.pexels.com/photos/6873079/pexels-photo-6873079.jpeg?auto=compress&cs=tinysrgb&w=600";
+const interiorUrl =
+  "https://images.pexels.com/photos/6873185/pexels-photo-6873185.jpeg?auto=compress&cs=tinysrgb&w=600";
+
+function Photo({
+  src,
+  alt,
+  caption,
+  className,
+}: {
+  src: string;
+  alt: string;
+  caption: string;
+  className?: string;
+}) {
   return (
     <figure className={cn("relative overflow-hidden rounded-sm bg-card", className)}>
       <img src={src} alt={alt} loading="lazy" className="h-full w-full object-cover" />
@@ -31,10 +54,10 @@ export function Gallery() {
           <Reveal>
             <figure>
               <BeforeAfter
-                before={before.url}
-                after={after.url}
-                beforeAlt="Грязный кроссовер после поездки по бездорожью"
-                afterAlt="Тот же кроссовер после мойки — чистый кузов, стёкла и диски"
+                before={beforeUrl}
+                after={afterUrl}
+                beforeAlt="Грязный внедорожник после поездки по бездорожью"
+                afterAlt="Чистый автомобиль после профессиональной мойки в студии"
                 className="aspect-[3/2]"
               />
               <figcaption className="mt-3 text-sm text-muted-foreground">
@@ -43,18 +66,53 @@ export function Gallery() {
             </figure>
           </Reveal>
 
-          <Reveal delay={80} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 lg:grid-rows-2 lg:pb-8">
+          <Reveal delay={80} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 lg:grid-rows-2">
             <Photo
-              src={seat.url}
-              alt="Сиденье автомобиля до и после химчистки"
-              caption="Химчистка сиденья: до / после"
+              src={seatUrl}
+              alt="Глубокая чистка сиденья автомобиля пылесосом"
+              caption="Химчистка сиденья"
               className="aspect-[3/2] lg:aspect-auto"
             />
             <Photo
-              src={foam.url}
-              alt="Автомобиль покрыт активной пеной"
+              src={foamUrl}
+              alt="Автомобиль покрыт активной пеной во время мойки"
               caption="Бесконтактная мойка"
               className="aspect-[3/2] lg:aspect-auto"
+            />
+          </Reveal>
+        </div>
+
+        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Reveal>
+            <Photo
+              src={polishUrl}
+              alt="Полировка чёрного кузова полировальной машиной"
+              caption="Полировка кузова"
+              className="aspect-[4/3]"
+            />
+          </Reveal>
+          <Reveal delay={60}>
+            <Photo
+              src={wheelUrl}
+              alt="Колёсный диск в пене во время мойки"
+              caption="Детальная мойка дисков"
+              className="aspect-[4/3]"
+            />
+          </Reveal>
+          <Reveal delay={120}>
+            <Photo
+              src={pressureWashUrl}
+              alt="Мастер моет чёрный автомобиль аппаратом высокого давления"
+              caption="Мойка под давлением"
+              className="aspect-[4/3]"
+            />
+          </Reveal>
+          <Reveal delay={180}>
+            <Photo
+              src={interiorUrl}
+              alt="Мастер протирает интерьер автомобиля внутри"
+              caption="Уход за салоном"
+              className="aspect-[4/3]"
             />
           </Reveal>
         </div>

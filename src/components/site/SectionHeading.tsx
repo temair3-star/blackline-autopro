@@ -22,7 +22,9 @@ export function SectionHeading({ title, description, className, aside }: Section
       {description || aside ? (
         <div className="flex flex-col gap-6 lg:pt-2">
           {description ? (
-            <p className="max-w-lg text-base leading-relaxed text-muted-foreground">{description}</p>
+            <p className="max-w-lg text-base leading-relaxed text-muted-foreground">
+              {description}
+            </p>
           ) : null}
           {aside}
         </div>

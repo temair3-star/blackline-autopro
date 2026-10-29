@@ -28,8 +28,8 @@ export function Hero() {
             которую видно
           </h1>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Моем, чистим и полируем без спешки. Профессиональная химия и мастера, которые
-            показывают результат до выдачи ключей.
+            Моем, чистим и полируем без спешки. Профессиональная химия и мастера, которые показывают
+            результат до выдачи ключей.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Button variant="lime" size="xl" onClick={() => openBooking()}>

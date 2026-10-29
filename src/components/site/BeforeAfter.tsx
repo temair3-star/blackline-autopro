@@ -14,7 +14,12 @@ export function BeforeAfter({ before, after, beforeAlt, afterAlt, className }: B
 
   return (
     <div className={`relative select-none overflow-hidden rounded-sm bg-card ${className ?? ""}`}>
-      <img src={after} alt={afterAlt} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+      <img
+        src={after}
+        alt={afterAlt}
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
       <img
         src={before}
         alt={beforeAlt}
@@ -23,7 +28,11 @@ export function BeforeAfter({ before, after, beforeAlt, afterAlt, className }: B
         style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
       />
 
-      <div aria-hidden className="pointer-events-none absolute inset-y-0 w-0.5 -translate-x-1/2 bg-foreground" style={{ left: `${pos}%` }}>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 w-0.5 -translate-x-1/2 bg-foreground"
+        style={{ left: `${pos}%` }}
+      >
         <span className="absolute left-1/2 top-1/2 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-sm bg-foreground text-xs font-bold text-background">
           ⇆
         </span>
