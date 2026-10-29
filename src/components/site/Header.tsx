@@ -37,50 +37,57 @@ export function Header() {
   const close = () => setOpen(false);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled || open
-          ? "border-b border-border bg-background/85 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent",
-      )}
-    >
-      <div className="container-site flex h-16 items-center justify-between lg:h-20">
-        <Logo onClick={close} />
+    <>
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+          scrolled || open
+            ? "border-b border-border bg-background/85 backdrop-blur-xl"
+            : "border-b border-transparent bg-transparent",
+        )}
+      >
+        <div className="container-site flex h-16 items-center justify-between lg:h-20">
+          <Logo onClick={close} />
 
-        <nav aria-label="Основная навигация" className="hidden lg:block">
-          <ul className="flex items-center gap-10">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+          <nav aria-label="Основная навигация" className="hidden lg:block">
+            <ul className="flex items-center gap-10">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <div className="flex items-center gap-2">
-          <Button variant="lime" size="pill" className="hidden sm:inline-flex" onClick={() => openBooking()}>
-            Записаться
-          </Button>
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Закрыть меню" : "Открыть меню"}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:text-primary lg:hidden"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="lime"
+              size="pill"
+              className="hidden sm:inline-flex"
+              onClick={() => openBooking()}
+            >
+              Записаться
+            </Button>
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-label={open ? "Закрыть меню" : "Открыть меню"}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-primary hover:text-primary lg:hidden"
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
-      {/* Мобильное меню */}
+      {/* Мобильное меню: вне header, т.к. backdrop-blur ломает fixed-позиционирование */}
       <div
         id="mobile-menu"
         className={cn(
@@ -131,6 +138,6 @@ export function Header() {
           <p className="text-center text-xs text-muted-foreground">{contacts.phoneNote}</p>
         </div>
       </div>
-    </header>
+    </>
   );
 }
