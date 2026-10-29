@@ -11,10 +11,15 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "postinstall": "node -e \"try{require('@rolldown/binding-linux-x64-gnu')}catch{try{require('@rolldown/binding-linux-x64-musl')}catch{}}\" || echo 'rolldown binding check skipped'"
   },
   "overrides": {
     "rolldown": "1.2.1"
+  },
+  "optionalDependencies": {
+    "@rolldown/binding-linux-x64-gnu": "1.2.1",
+    "@rolldown/binding-linux-x64-musl": "1.2.1"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
