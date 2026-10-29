@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import seat from "@/assets/gallery-seat.jpg.asset.json";
 import before from "@/assets/gallery-before.jpg.asset.json";
 import after from "@/assets/gallery-after.jpg.asset.json";
@@ -23,7 +25,7 @@ interface TileProps {
   src: string;
   alt: string;
   className?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
   caption?: string;
 }
 
