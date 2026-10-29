@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 
 import seat from "@/assets/gallery-seat.jpg.asset.json";
-import before from "@/assets/gallery-before.jpg.asset.json";
-import after from "@/assets/gallery-after.jpg.asset.json";
+import before from "@/assets/creta-before.jpg.asset.json";
+import after from "@/assets/creta-after.jpg.asset.json";
 import foam from "@/assets/gallery-foam.jpg.asset.json";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
@@ -101,9 +101,9 @@ export function Gallery() {
           <Reveal delay={200}>
             <Tile
               src={after.url}
-              alt="Чистый чёрный автомобиль с глянцевым кузовом"
+              alt="Тот же кроссовер после мойки — чистый кузов, стёкла и диски"
               className="aspect-[4/3]"
-              caption="Уезжает в идеальном состоянии"
+              caption="Тот же автомобиль после мойки"
             >
               <div className="absolute left-4 top-4">
                 <Tag accent>После</Tag>
