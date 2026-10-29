@@ -14,6 +14,7 @@ export const bookingSchema = z.object({
   phone: z
     .string()
     .trim()
+    .min(1, { message: "Введите номер телефона" })
     .max(25, { message: "Слишком длинный номер" })
     .regex(/^[+\d\s()-]+$/, { message: "Номер может содержать только цифры" })
     .refine(
